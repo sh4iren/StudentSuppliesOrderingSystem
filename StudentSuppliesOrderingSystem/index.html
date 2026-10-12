@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple student supplies ordering and cash payment application.">
+    <title>Student Supplies Ordering System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="brand-mark" aria-hidden="true">SS</div>
+            <div>
+                <p class="eyebrow">CAMPUS SUPPLY STORE</p>
+                <h1>Student Supplies Ordering System</h1>
+                <p class="header-subtitle">Choose your essentials, review your order, and pay in cash.</p>
+            </div>
+        </div>
+        <div class="store-status"><span class="status-dot"></span> Ready for orders</div>
+    </header>
+
+    <main class="page-container">
+        <section class="intro-row" aria-labelledby="welcome-heading">
+            <div>
+                <p class="eyebrow">QUICK • SIMPLE • CONVENIENT</p>
+                <h2 id="welcome-heading">What do you need today?</h2>
+                <p class="muted">Select supplies below to add them to your cart.</p>
+            </div>
+            <div class="product-count"><strong>06</strong><span>available products</span></div>
+        </section>
+
+        <div class="main-grid">
+            <section class="panel products-panel" aria-labelledby="products-heading">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">BROWSE ITEMS</p>
+                        <h2 id="products-heading">Product List</h2>
+                    </div>
+                    <span class="section-icon" aria-hidden="true">▦</span>
+                </div>
+                <div id="product-list" class="product-grid" aria-live="polite"></div>
+            </section>
+
+            <aside class="right-column">
+                <section class="panel cart-panel" aria-labelledby="cart-heading">
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">YOUR SELECTION</p>
+                            <h2 id="cart-heading">Shopping Cart <span id="cart-count" class="count-badge">0</span></h2>
+                        </div>
+                        <span class="section-icon" aria-hidden="true">🛒</span>
+                    </div>
+                    <div id="cart-items" class="cart-items">
+                        <div class="empty-state">
+                            <span class="empty-icon" aria-hidden="true">＋</span>
+                            <strong>Your cart is empty</strong>
+                            <p>Add a product to get started.</p>
+                        </div>
+                    </div>
+                    <div class="order-total">
+                        <span>Total amount due</span>
+                        <strong id="order-total">₱0.00</strong>
+                    </div>
+                </section>
+
+                <section class="panel payment-panel" aria-labelledby="payment-heading">
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">CHECKOUT</p>
+                            <h2 id="payment-heading">Cash Payment</h2>
+                        </div>
+                        <span class="section-icon" aria-hidden="true">₱</span>
+                    </div>
+                    <form id="payment-form" novalidate>
+                        <label for="amount-paid">Amount paid (₱)</label>
+                        <div class="input-wrap">
+                            <span aria-hidden="true">₱</span>
+                            <input id="amount-paid" name="amount-paid" type="number" min="0" step="0.01"
+                                inputmode="decimal" placeholder="0.00" autocomplete="off" aria-describedby="payment-error">
+                        </div>
+                        <p id="payment-error" class="form-message" role="alert"></p>
+                        <button id="confirm-payment" class="button button-primary button-full" type="submit">
+                            Confirm Payment <span aria-hidden="true">→</span>
+                        </button>
+                    </form>
+                    <p class="secure-note"><span aria-hidden="true">✓</span> Receipt is generated after valid payment.</p>
+                </section>
+            </aside>
+        </div>
+
+        <section id="receipt-panel" class="panel receipt-panel hidden" aria-labelledby="receipt-heading">
+            <div class="receipt-success">
+                <div class="success-icon" aria-hidden="true">✓</div>
+                <p class="eyebrow">PAYMENT CONFIRMED</p>
+                <h2 id="receipt-heading">Your receipt</h2>
+                <p class="muted">Thank you for shopping with us.</p>
+            </div>
+            <div id="receipt-content"></div>
+            <div class="receipt-actions">
+                <button id="print-receipt" class="button button-secondary" type="button">Print Receipt</button>
+                <button id="new-transaction" class="button button-primary" type="button">New Transaction <span aria-hidden="true">↻</span></button>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <span>Student Supplies Ordering System</span>
+            <span>Simple ordering for campus essentials</span>
+        </footer>
+    </main>
+</body>
+</html>
